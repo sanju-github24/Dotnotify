@@ -13,9 +13,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "node build.js",
-    "dev": "node build.js --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "echo ready"
   },
   "keywords": [
     "notification",
@@ -28,15 +26,15 @@
     "alert",
     "dotnotify"
   ],
-  "author": "Your Name <you@example.com>",
+  "author": "Sanju sanjusanjay0444@gmail.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/dotnotify.git"
+    "url": "https://github.com/sanju-github24/dotnotify.git"
   },
-  "homepage": "https://github.com/yourusername/dotnotify#readme",
+  "homepage": "https://github.com/sanju-github24/dotnotify#readme",
   "bugs": {
-    "url": "https://github.com/yourusername/dotnotify/issues"
+    "url": "https://github.com/sanju-github24/dotnotify/issues"
   },
   "devDependencies": {
     "terser": "^5.48.0"
