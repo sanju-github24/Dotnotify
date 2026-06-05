@@ -1,5 +1,7 @@
 # 🔔 DotNotify
 
+![DotNotify Demo](https://github.com/sanju-github24/Dotnotify/blob/main/assets/Recording%202026-06-05%20at%2009.39.40.gif)
+
 > **iOS-glass particle notifications** — dots fly in from random positions, merge into a frosted-glass card, and explode back into dots on dismiss.
 
 [![npm version](https://img.shields.io/npm/v/dotnotify.svg)](https://www.npmjs.com/package/dotnotify)
