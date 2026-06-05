@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DotNotify — Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, 'Inter', sans-serif;
+      background: radial-gradient(ellipse at 20% 20%, #1e1b4b 0%, #0f172a 60%, #000 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 40px;
+    }
+    button {
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 0.5px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.88);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background .15s;
+      font-family: inherit;
+    }
+    button:hover { background: rgba(255,255,255,.16); }
+    h1 { color: rgba(255,255,255,.6); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; width: 100%; text-align: center; margin-bottom: 8px; }
+  </style>
+  <!-- Load DotNotify from dist -->
+  <script src="../dist/dotnotify.js"></script>
+</head>
+<body>
+
+  <h1>DotNotify — Click to fire</h1>
+
+  <button onclick="fireError()">🔴 Error</button>
+  <button onclick="fireSuccess()">🟢 Success</button>
+  <button onclick="fireWarning()">🟡 Warning</button>
+  <button onclick="fireInfo()">🔵 Info</button>
+  <button onclick="fireWithImage()">🖼️ With Image</button>
+  <button onclick="fireWithActions()">✅ With Actions</button>
+  <button onclick="fireRing()">💍 Ring Mode</button>
+  <button onclick="fireStack()">📚 Stack ×4</button>
+  <button onclick="notify.dismissAll()">❌ Dismiss All</button>
+
+  <script>
+    const notify = DotNotify({
+      position: 'top-right',
+      theme: 'ios-glass',
+      sound: true,
+      maxStack: 4,
+    });
+
+    function fireError() {
+      notify.fire({
+        type: 'error',
+        title: 'Login Failed',
+        message: 'Your credentials could not be verified.',
+      });
+    }
+
+    function fireSuccess() {
+      notify.fire({
+        type: 'success',
+        title: 'Profile Saved',
+        message: 'Your changes have been saved successfully.',
+      });
+    }
+
+    function fireWarning() {
+      notify.fire({
+        type: 'warning',
+        title: 'Session Expiring',
+        message: 'You will be logged out in 5 minutes.',
+      });
+    }
+
+    function fireInfo() {
+      notify.fire({
+        type: 'info',
+        title: 'Update Available',
+        message: 'A new version is ready to install.',
+      });
+    }
+
+    // Developer image — URL
+    function fireWithImage() {
+      notify.fire({
+        type: 'info',
+        title: 'New message from Priya',
+        message: 'Hey, are you free for a quick call?',
+        image: 'https://i.pravatar.cc/150?img=47',
+        thumbnail: 'https://picsum.photos/seed/abc/60/60',
+      });
+    }
+
+    // Actions + promise
+    async function fireWithActions() {
+      const result = await notify.fire({
+        type: 'error',
+        title: 'Connection Lost',
+        message: 'Unable to reach the server.',
+        actions: [
+          { label: 'Retry', primary: true, onClick: () => console.log('Retrying...') },
+          { label: 'Dismiss' },
+        ],
+      });
+      console.log('Dismissed via:', result.dismissed, result.action || '');
+    }
+
+    // Ring progress mode
+    function fireRing() {
+      notify.fire({
+        type: 'warning',
+        title: 'Uploading File',
+        message: 'Your file is being uploaded…',
+        progressStyle: 'ring',
+        icon: '📤',
+        duration: 5000,
+      });
+    }
+
+    // Stack 4 at once
+    function fireStack() {
+      const items = [
+        { type: 'error',   title: 'Auth Error',    message: 'Login failed.' },
+        { type: 'success', title: 'File Saved',     message: 'Document synced.' },
+        { type: 'warning', title: 'Low Storage',    message: 'Only 500MB left.' },
+        { type: 'info',    title: 'System Update',  message: 'Restart required.' },
+      ];
+      items.forEach((item, i) => setTimeout(() => notify.fire(item), i * 160));
+    }
+
+    // File input example — uncomment if you add <input type="file" id="avatar">
+    // document.getElementById('avatar').addEventListener('change', (e) => {
+    //   notify.fire({
+    //     type: 'success',
+    //     title: 'Avatar Updated',
+    //     message: 'Your profile picture has been saved.',
+    //     image: e.target.files[0],  // ← File object
+    //   });
+    // });
+  </script>
+</body>
+</html>

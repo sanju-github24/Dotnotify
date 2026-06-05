@@ -1,0 +1,45 @@
+{
+  "name": "dotnotify",
+  "version": "1.0.0",
+  "description": "iOS-glass particle notification library — dots fly in, card assembles, dots explode on dismiss. Zero dependencies.",
+  "main": "dist/dotnotify.js",
+  "module": "dist/dotnotify.esm.js",
+  "browser": "dist/dotnotify.min.js",
+  "types": "dist/dotnotify.d.ts",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "notification",
+    "toast",
+    "ios",
+    "glass",
+    "particles",
+    "animation",
+    "ui",
+    "alert",
+    "dotnotify"
+  ],
+  "author": "Your Name <you@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/dotnotify.git"
+  },
+  "homepage": "https://github.com/yourusername/dotnotify#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/dotnotify/issues"
+  },
+  "devDependencies": {
+    "terser": "^5.48.0"
+  },
+  "sideEffects": false
+}
