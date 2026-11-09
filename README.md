@@ -437,7 +437,7 @@ dotnotify/
 
 ## 📄 License
 
-MIT © 2024 Your Name
+MIT © 2024 sanju
 
 ---
 
@@ -452,4 +452,4 @@ MIT © 2024 Your Name
 
 ---
 
-<p align="center">Made with ❤️ · <a href="https://github.com/yourusername/dotnotify">GitHub</a> · <a href="https://www.npmjs.com/package/dotnotify">npm</a></p>
+<p align="center">Made with ❤️ · <a href="https://github.com/sanju-github24/dotnotify">GitHub</a> · <a href="https://www.npmjs.com/package/dotnotify">npm</a></p>
